@@ -1,6 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const snChannelId = '180740909825130496';
 bot.login(botconfig.token);
 
 const reply = {
@@ -10,6 +11,7 @@ const reply = {
     "semutanjing": "kau kotey",
     "ying": "**We are stronger together!**",
     "hanzo": "**Ryuuga wagateki wo kurau!**",
+    "genji": "**Ryūjin no ken wo kurae!**",
     "mercy": "**Heroes never die!**",
     "makoa": "**You challenge Makoa!?**",
     "sith": "Did you ever hear the tragedy of Darth Plagueis the Wise?"
@@ -30,8 +32,9 @@ let isCommand = (fl) => {
     return isCmd;
 }
 
-bot.on("ready", () => {
+bot.on("ready",async () => {
     console.log("bot is online");
+    // bot.channels.get(snChannelId).send("Annyeong!");
 });
 
 bot.on("message", async (message) => {
@@ -42,7 +45,7 @@ bot.on("message", async (message) => {
     let fl = sentence[0];
     let cmd = fl.substring(1);
     let msg = sentence[1];
-    let choice = getRandomInt(0, mentionArray.length);
+    let choice = getRandomInt(0, mentionArray.length-1);
 
     if (isCommand(fl)) {
         if (reply[cmd]) {
@@ -59,7 +62,7 @@ bot.on("message", async (message) => {
 //     if ((oldMember.presence.game !== newMember.presence.status)) {
 //         if (newMember.presence.game !== null) {
 //             if (newMember.presence.game.name != "Spotify") {
-//                 guildChannels.find('name', 'semutanjing-nation').send("**" + newMember.user.username + "** is now playing **" + newMember.presence.game.name + "**"+"\n"+joinArray[getRandomInt(0, joinArray.length)]);
+//                 guildChannels.find('name', 'semutanjing-nation').send("**" + newMember.user.username + "** is now playing **" + newMember.presence.game.name + "**"+"\n"+joinArray[getRandomInt(0, joinArray.length -1)]);
 //             }
 //         }
 //     }
