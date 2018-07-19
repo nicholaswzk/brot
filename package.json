@@ -1,0 +1,14 @@
+{
+  "name": "brot",
+  "version": "1.0.0",
+  "description": "a discord brot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zentaro",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
